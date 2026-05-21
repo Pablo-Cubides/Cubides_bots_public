@@ -1,0 +1,21 @@
+# CODEOWNERS - Revisa cambios críticos
+# https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/customizing-your-repository/about-code-owners
+
+# Seguridad
+.gitignore @owner
+.env.example @owner
+SECURITY.md @owner
+.sops.yaml @owner
+
+# Scripts de secretos
+scripts/secrets-* @owner
+scripts/add-secret.ps1 @owner
+
+# Docker y orquestación
+docker-compose.yml @owner
+Dockerfile @owner
+
+# Cambios en composición de agentes
+colega/ @owner
+personal_agent/ @owner
+business_agent/ @owner

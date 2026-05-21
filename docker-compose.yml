@@ -1,0 +1,223 @@
+# Variables interpoladas desde .env (gitignored, ver .env.example):
+#   AGENT_ADMIN_TOKEN    — token para /api/task y /api/logs de Socio (obligatorio)
+#   VNC_PASSWORD         — contraseña noVNC para Socio Heavy (:? — obligatorio)
+#   OPENCLAW_IMAGE/CONTAINER_NAME/PORT/VOLUME_NAME — configuración de Colega
+#   HOST_UID/GID         — UID/GID del host para el usuario claude en Coach
+#   SOCIO_MODEL_*        — fases de modelo Gemini para el daemon
+#   GEMINI_MODEL         — sobrescribe la política de fases si se define
+# NOTA P2-6: AGENT_ADMIN_TOKEN es el único token sensible en .env. Los demás son
+# configuración sin riesgo. Migración futura: mover AGENT_ADMIN_TOKEN a
+# %LOCALAPPDATA%\misbots\runtime.env y pasar --env-file en cada start-*.ps1.
+services:
+  colega:
+    build:
+      context: ./academic_agent
+    image: ${OPENCLAW_IMAGE:-mis-bots-academic:latest}
+    container_name: ${OPENCLAW_CONTAINER_NAME:-colega}
+    profiles: ["openclaw"]
+    ports:
+      - "127.0.0.1:${OPENCLAW_PORT:-18789}:18789"
+    env_file:
+      - ./secrets/runtime/colega.env
+    environment:
+      OPENCLAW_STATE_DIR: /data/openclaw
+      HOME: /data/openclaw
+      SEARXNG_BASE_URL: ${SEARXNG_BASE_URL:-http://searxng:8080}
+    volumes:
+      - openclaw_data:/data/openclaw
+      # Perfil del agente (identidad, rutinas, inbox de Slack). Montado ro para que
+      # OpenClaw pueda leer los archivos de identidad y mensajes sin poder modificarlos.
+      - ./academic_agent/profile:/data/openclaw/profile:ro
+      - ./logs/runtime/colega-memory-bridge:/data/openclaw/profile/memory_bridge:ro
+      - ./agent_tools:/opt/agent_tools:ro
+    # TODO P1-5: verificar si OpenClaw requiere root. Razón actual desconocida —
+    # intentar con user: "1001:1001" en entorno de prueba antes de cambiar en prod.
+    user: "0:0"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:18789/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 60s
+    restart: unless-stopped
+
+  personal:
+    build:
+      context: ./personal_agent
+      args:
+        CLAUDE_UID: ${HOST_UID:-1001}
+        CLAUDE_GID: ${HOST_GID:-1001}
+    container_name: personal
+    working_dir: /home/claude/workspace
+    env_file:
+      - ./secrets/runtime/personal.env
+    environment:
+      HOME: /home/claude
+      CLAUDE_HOME: /home/claude/.claude
+      TZ: America/Bogota
+    volumes:
+      - ./:/home/claude/workspace
+      - ./personal_agent/.claude:/home/claude/.claude
+      - ./agent_tools:/opt/agent_tools:ro
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "bash", "-lc", "claude --version >/dev/null 2>&1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    stdin_open: true
+    tty: true
+    restart: unless-stopped
+
+  business_agent:
+    build:
+      context: ./business_agent
+    container_name: business_agent
+    ports:
+      - "127.0.0.1:8003:8003"
+    env_file:
+      - ./secrets/runtime/business.env
+    environment:
+      AGENT_DATA_DIR: /app/data
+      AGENT_ADMIN_TOKEN: ${AGENT_ADMIN_TOKEN:-}
+      HOME: /app/data
+      TZ: America/Bogota
+      AGENT_TIMEZONE: America/Bogota
+    volumes:
+      - ./business_agent/data:/app/data
+      - ./agent_tools:/opt/agent_tools:ro
+      - ./config:/app/config:ro
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    healthcheck:
+      test: ["CMD", "python", "-c", "import urllib.request;urllib.request.urlopen('http://127.0.0.1:8003/health', timeout=3).read()"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+    restart: unless-stopped
+
+  business_agent_daemon:
+    build:
+      context: ./business_agent
+    container_name: business_agent_daemon
+    env_file:
+      - ./secrets/runtime/business.env
+    environment:
+      AGENT_DATA_DIR: /app/data
+      HOME: /app/data
+      TZ: America/Bogota
+      AGENT_TIMEZONE: America/Bogota
+      SOCIO_MODEL_PHASE: ${SOCIO_MODEL_PHASE:-standard}
+      SOCIO_MODEL_FAST: ${SOCIO_MODEL_FAST:-gemini-2.5-flash-lite}
+      SOCIO_MODEL_STANDARD: ${SOCIO_MODEL_STANDARD:-gemini-2.5-flash}
+      SOCIO_MODEL_DEEP: ${SOCIO_MODEL_DEEP:-gemini-2.5-pro}
+      GEMINI_MODEL: ${GEMINI_MODEL:-}
+    volumes:
+      - ./business_agent/data:/app/data
+      - ./agent_tools:/opt/agent_tools:ro
+      - ./config:/app/config:ro
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    read_only: true
+    tmpfs:
+      - /tmp
+    command: ["python", "-u", "/app/app/heartbeat.py"]
+    healthcheck:
+      test: ["CMD", "python", "-c", "import os; exit(0 if os.path.isdir('/app/data/logs') else 1)"]
+      interval: 60s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
+    restart: unless-stopped
+
+  business_agent_heavy:
+    build:
+      context: ./business_agent
+      dockerfile: Dockerfile.heavy
+    container_name: business_agent_heavy
+    profiles: ["heavy"]
+    ports:
+      - "127.0.0.1:6080:6080"
+    environment:
+      AGENT_DATA_DIR: /app/data
+      HOME: /app/data
+      VNC_PASSWORD: ${VNC_PASSWORD:?VNC_PASSWORD must be set in .env}
+    volumes:
+      - ./business_agent/data:/app/data
+      - ./agent_tools:/opt/agent_tools:ro
+      - ./config:/app/config:ro
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    tmpfs:
+      - /tmp
+    restart: "no"
+
+  voice_transcriber:
+    build:
+      context: ./voice_transcriber
+    container_name: voice_transcriber
+    ports:
+      - "127.0.0.1:${VOICE_TRANSCRIBER_PORT:-8011}:8011"
+    environment:
+      WHISPER_MODEL: ${VOICE_TRANSCRIBER_MODEL:-small}
+      WHISPER_DEVICE: ${VOICE_TRANSCRIBER_DEVICE:-cpu}
+      WHISPER_COMPUTE_TYPE: ${VOICE_TRANSCRIBER_COMPUTE_TYPE:-int8}
+      WHISPER_LANGUAGE: ${VOICE_TRANSCRIBE_LANGUAGE:-es}
+      VOICE_AUDIO_MAX_BYTES: ${VOICE_AUDIO_MAX_BYTES:-26214400}
+    volumes:
+      - voice_transcriber_cache:/root/.cache
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    healthcheck:
+      test: ["CMD", "curl", "-fsS", "http://127.0.0.1:8011/health"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 120s
+    restart: unless-stopped
+
+  searxng:
+    image: ${SEARXNG_IMAGE:-searxng/searxng:latest}
+    container_name: ${SEARXNG_CONTAINER_NAME:-searxng}
+    profiles: ["openclaw"]
+    ports:
+      - "127.0.0.1:${SEARXNG_PORT:-8088}:8080"
+    environment:
+      BASE_URL: http://127.0.0.1:${SEARXNG_PORT:-8088}/
+      INSTANCE_NAME: Agents Search
+    volumes:
+      - searxng_data:/etc/searxng
+    # La imagen oficial inicializa /etc/searxng/settings.yml al primer arranque.
+    # Mantener root aquí evita un loop de permisos sobre el volumen nombrado.
+    user: "0:0"
+    security_opt:
+      - no-new-privileges:true
+    cap_drop:
+      - ALL
+    restart: unless-stopped
+
+volumes:
+  openclaw_data:
+    external: true
+    name: ${OPENCLAW_VOLUME_NAME:-misbots_openclaw_data}
+  voice_transcriber_cache:
+  searxng_data:
+

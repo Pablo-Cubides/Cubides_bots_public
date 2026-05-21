@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Socio V2.0 | Open Claw Style</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-base: #09090b;
+            --bg-panel: #18181b;
+            --bg-border: #27272a;
+            --accent-glow: #06b6d4;
+            --accent-text: #22d3ee;
+            --text-main: #e4e4e7;
+            --text-muted: #a1a1aa;
+            --success: #10b981;
+        }
+        * { box-sizing: border-box; }
+        body { margin: 0; font-family: 'Inter', sans-serif; background: var(--bg-base); color: var(--text-main); display: flex; height: 100vh; overflow: hidden; }
+        
+        /* Sidebar */
+        #sidebar { width: 280px; background: var(--bg-panel); border-right: 1px solid var(--bg-border); display: flex; flex-direction: column; }
+        .logo-area { padding: 24px; border-bottom: 1px solid var(--bg-border); }
+        .logo { font-family: 'JetBrains Mono', monospace; font-size: 1.5rem; font-weight: 700; color: var(--text-main); display: flex; align-items: center; gap: 10px; }
+        .logo span { color: var(--accent-glow); text-shadow: 0 0 10px rgba(6, 182, 212, 0.5); }
+        
+        .nav { padding: 16px; display: flex; flex-direction: column; gap: 8px; flex: 1; }
+        .nav-item { padding: 12px 16px; border-radius: 8px; color: var(--text-muted); cursor: pointer; transition: all 0.2s; font-size: 0.9rem; font-weight: 600; display: flex; align-items: center; gap: 10px; }
+        .nav-item:hover { background: rgba(255,255,255,0.03); color: var(--text-main); }
+        .nav-item.active { background: rgba(6, 182, 212, 0.1); color: var(--accent-text); border: 1px solid rgba(6, 182, 212, 0.2); }
+        
+        /* Main Area */
+        #main { flex: 1; display: flex; flex-direction: column; background: var(--bg-base); }
+        header { height: 73px; border-bottom: 1px solid var(--bg-border); display: flex; align-items: center; justify-content: space-between; padding: 0 32px; background: rgba(24, 24, 27, 0.5); backdrop-filter: blur(10px); }
+        .header-title { font-weight: 600; font-size: 1.1rem; }
+        .status-badge { display: flex; align-items: center; gap: 8px; font-family: 'JetBrains Mono', monospace; font-size: 0.8rem; background: rgba(16, 185, 129, 0.1); color: var(--success); padding: 6px 12px; border-radius: 20px; border: 1px solid rgba(16, 185, 129, 0.2); }
+        .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--success); box-shadow: 0 0 8px var(--success); animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { opacity: 1; } 50% { opacity: 0.4; } 100% { opacity: 1; } }
+
+        /* Content / Chat */
+        #content { flex: 1; padding: 32px; overflow-y: auto; display: flex; flex-direction: column; gap: 24px; }
+        .msg { max-width: 80%; line-height: 1.6; font-size: 0.95rem; }
+        .msg-header { margin-bottom: 8px; font-size: 0.85rem; font-weight: 600; color: var(--text-muted); display: flex; align-items: center; gap: 8px; }
+        .msg-bubble { padding: 16px 20px; border-radius: 12px; }
+        
+        .msg.socio { align-self: flex-start; }
+        .msg.socio .msg-header { color: var(--accent-text); }
+        .msg.socio .msg-bubble { background: var(--bg-panel); border: 1px solid var(--bg-border); border-top-left-radius: 4px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .msg.socio .code-block { font-family: 'JetBrains Mono', monospace; background: #000; padding: 12px; border-radius: 6px; margin-top: 12px; font-size: 0.85rem; color: #a1a1aa; border: 1px solid #3f3f46; border-left: 3px solid var(--accent-glow); }
+
+        .msg.user { align-self: flex-end; }
+        .msg.user .msg-bubble { background: var(--text-main); color: var(--bg-base); border-top-right-radius: 4px; font-weight: 500; }
+
+        /* Input */
+        #input-container { padding: 24px 32px; background: var(--bg-base); border-top: 1px solid var(--bg-border); }
+        .input-box { display: flex; gap: 12px; background: var(--bg-panel); border: 1px solid var(--bg-border); border-radius: 12px; padding: 8px; transition: border 0.3s; }
+        .input-box:focus-within { border-color: var(--accent-glow); box-shadow: 0 0 0 1px rgba(6, 182, 212, 0.2); }
+        input { flex: 1; background: transparent; border: none; outline: none; padding: 12px; color: var(--text-main); font-size: 0.95rem; font-family: 'Inter', sans-serif; }
+        button { background: var(--text-main); color: var(--bg-base); border: none; padding: 0 24px; border-radius: 8px; font-weight: 600; cursor: pointer; transition: transform 0.1s, opacity 0.2s; }
+        button:hover { opacity: 0.9; transform: translateY(-1px); }
+        button:active { transform: translateY(0); }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <div class="logo-area">
+            <div class="logo">OPEN<span>CLAW</span> SOCIO</div>
+        </div>
+        <div class="nav">
+            <div class="nav-item active">💬 Consola Estratégica</div>
+            <div class="nav-item">📋 Plan de Tareas (MD)</div>
+            <div class="nav-item">🧠 Base de Conocimiento</div>
+            <div class="nav-item">📊 Hallazgos & Médricas</div>
+            <div class="nav-item">⚙️ Configuración Segura</div>
+        </div>
+    </div>
+    <div id="main">
+        <header>
+            <div class="header-title">Consola de Mando</div>
+            <div class="status-badge">
+                <div class="dot"></div>
+                DAEMON ONLINE [Gemini 3.1 Pro]
+            </div>
+        </header>
+        <div id="content">
+            <div class="msg socio">
+                <div class="msg-header">SOCIO V2.0 <span>• Ahora</span></div>
+                <div class="msg-bubble">
+                    Sistemas inicializados en Docker. He leído el contexto de tus unidades de negocio (`/memory/context.md`). 
+                    <br><br>
+                    El <strong>Daemon de Antigravity Swarm</strong> está a la espera de instrucciones. ¿Qué investigamos o planificamos hoy?
+                </div>
+            </div>
+            
+            <div class="msg user">
+                <div class="msg-bubble">Socio, necesito que analices 3 herramientas de IA para optimizar agencias de desarrollo web. Hazme el research y déjamelo en la memoria.</div>
+            </div>
+
+            <div class="msg socio">
+                <div class="msg-header">SOCIO V2.0 <span>• Ahora</span></div>
+                <div class="msg-bubble">
+                    Entendido. He procesado tu requerimiento y lo he delegado al proceso en segundo plano.
+                    <div class="code-block">
+                        > Transcribiendo orden a task_plan.md... [OK]<br>
+                        > Daemon despertará en 10m.<br>
+                        > Estado: EN PROCESO
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div id="input-container">
+            <div class="input-box">
+                <input type="text" placeholder="Escribe 'Socio, hazme un plan de negocio sobre...' y presiona Enter">
+                <button>Ejecutar</button>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

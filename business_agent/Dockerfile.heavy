@@ -1,0 +1,54 @@
+FROM ubuntu:22.04@sha256:962f6cadeae0ea6284001009daa4cc9a8c37e75d1f5191cf0eb83fe565b63dd7
+
+ENV DEBIAN_FRONTEND=noninteractive
+ENV PYTHONDONTWRITEBYTECODE=1
+ENV PYTHONUNBUFFERED=1
+ENV TZ=UTC
+
+RUN apt-get update && apt-get install -y \
+    python3 python3-pip git curl wget ripgrep procps \
+    xfce4 xfce4-goodies tightvncserver \
+    novnc websockify firefox \
+    xterm tzdata && \
+    apt-get clean && rm -rf /var/lib/apt/lists/*
+
+# Instalar Node 20 y Gemini CLI
+RUN curl -fsSL https://deb.nodesource.com/setup_20.x | bash - && \
+    apt-get install -y nodejs && \
+    npm install -g @google/gemini-cli && \
+    node -e "JSON.parse(require('fs').readFileSync('/usr/lib/node_modules/@google/gemini-cli/package.json','utf8'))" && \
+    mkdir -p /usr/lib/node_modules/@google/gemini-cli/bundle/vendor/ripgrep && \
+    ln -sf /usr/bin/rg /usr/lib/node_modules/@google/gemini-cli/bundle/vendor/ripgrep/rg-linux-x64 && \
+    npm cache clean --force
+
+# Crear symlink de python a python3
+RUN ln -s /usr/bin/python3 /usr/bin/python
+
+# Clonar Antigravity Swarm pinado a commit verificado
+RUN git clone https://github.com/wjgoarxiv/antigravity-swarm.git /app/swarm && \
+    cd /app/swarm && git checkout 8ad0b88ef364a9f6c00a05b6e251e937a1ce481d && \
+    pip install --no-cache-dir -r /app/swarm/requirements.txt
+
+WORKDIR /app
+
+COPY requirements.txt /app/requirements.txt
+RUN pip install --no-cache-dir -r /app/requirements.txt
+
+COPY app /app/app
+COPY start_heavy.sh /app/start_heavy.sh
+RUN chmod +x /app/start_heavy.sh
+
+# Configurar NoVNC
+RUN cp /usr/share/novnc/vnc.html /usr/share/novnc/index.html
+
+# Usuario no-root para VNC. /tmp/.X11-unix necesita stick-bit para sockets de usuario.
+RUN useradd -m -u 1001 -s /bin/bash socio && \
+    mkdir -p /tmp/.X11-unix && chmod 1777 /tmp/.X11-unix && \
+    chown -R socio:socio /app /home/socio
+
+USER socio
+ENV HOME=/home/socio
+
+EXPOSE 6080
+
+CMD ["/app/start_heavy.sh"]

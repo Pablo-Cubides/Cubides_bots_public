@@ -1,0 +1,142 @@
+# Environment files (NEVER commit)
+.env
+*.env
+.env.*
+!.env.example
+
+# SOPS + AGE key material (CRITICAL - local only)
+.age/
+.age/keys.txt
+
+# Secrets (encrypted files stay, runtime files are local-only)
+secrets/*.dec.yaml
+secrets/*.decrypted.yaml
+secrets/.tmp*.yaml
+secrets/runtime/*.env
+
+# Claude runtime state (local development only) — solo root-level, no aplica a
+# personal_agent/.claude/ que es configuracion versionada de Coach
+/.claude/
+personal_agent/data/
+personal_agent/inbox/
+personal_agent/.claude/**
+!personal_agent/.claude/.gitkeep
+!personal_agent/.claude/settings.json
+!personal_agent/.claude/rules/
+!personal_agent/.claude/rules/**
+!personal_agent/.claude/hooks/
+!personal_agent/.claude/hooks/**
+!personal_agent/.claude/rules/**
+personal_agent/.claude/settings.local.json
+
+# Docker build artifacts
+docker/build/
+
+# IDE/Editor
+.vscode/settings.json
+.vscode/launch.json
+.DS_Store
+*.swp
+*.swo
+*~
+.idea/
+
+# Node.js / npm
+node_modules/
+.next/
+*.tsbuildinfo
+npm-debug.log
+yarn-error.log
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+!scripts/lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+.venv/
+env/
+venv/
+
+# Logs
+*.log
+*.log.*
+logs/
+logs/**
+!logs/.gitkeep
+!dashboard/app/api/agents/[id]/logs/
+!dashboard/app/api/agents/[id]/logs/**
+!dashboard/app/api/agents/\[id\]/logs/
+!dashboard/app/api/agents/\[id\]/logs/**
+!dashboard/lib/
+!dashboard/lib/**
+
+# Socio runtime data — credenciales OAuth, logs y artefactos generados
+business_agent/data/.gemini/
+business_agent/data/.npm/
+business_agent/data/.agent/routines/
+business_agent/data/.agent/state/
+business_agent/data/.ICEauthority
+business_agent/data/.Xauthority
+business_agent/data/.cache/
+business_agent/data/.config/
+business_agent/data/.dbus/
+business_agent/data/.gnupg/
+business_agent/data/.heavy_lock
+business_agent/data/.vnc/
+business_agent/data/.xsession-errors
+business_agent/data/logs/
+business_agent/data/canvas/
+business_agent/data/tmp/
+business_agent/data/artifacts/
+business_agent/data/runtime/
+business_agent/data/memory/findings.md
+business_agent/data/memory/*.html
+business_agent/data/memory/*.tsx
+business_agent/data/memory/*.js
+business_agent/data/aquatech/
+business_agent/data/tasks/
+!business_agent/data/tasks/.gitkeep
+business_agent/data/tasks/task_plan.md
+# Scripts y reportes generados por agentes en runtime (no deben entrar al repo)
+business_agent/data/findings.md
+business_agent/data/send_*.py
+business_agent/data/*.py
+business_agent/data/inbox/
+academic_agent/profile/inbox/
+personal_agent/inbox/
+personal_agent/life_wiki/raw/
+personal_agent/life_wiki/situations/
+personal_agent/life_wiki/patterns/
+personal_agent/life_wiki/weekly_reviews/
+personal_agent/life_wiki/experiments/
+!personal_agent/life_wiki/raw/.gitkeep
+!personal_agent/life_wiki/situations/.gitkeep
+!personal_agent/life_wiki/patterns/.gitkeep
+!personal_agent/life_wiki/weekly_reviews/.gitkeep
+!personal_agent/life_wiki/experiments/.gitkeep
+
+# Temp files
+.tmp/
+*.tmp
+/tmp/
+
+# OS
+Thumbs.db
+.Thumbs.db

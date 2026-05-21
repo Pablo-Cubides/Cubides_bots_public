@@ -1,0 +1,78 @@
+name: Build & Lint
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  dockerfiles:
+    name: Validate Dockerfiles
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Build academic (Colega)
+        run: docker buildx build --no-cache ./academic_agent
+
+      - name: Build personal (Coach)
+        run: docker buildx build --no-cache ./personal_agent
+
+      - name: Build business lite (Socio)
+        run: docker buildx build --no-cache ./business_agent
+
+      - name: Build business heavy (Socio Heavy)
+        run: docker buildx build --no-cache -f ./business_agent/Dockerfile.heavy ./business_agent
+
+  python:
+    name: Validate Python
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Syntax check business_agent
+        run: |
+          python3 -m py_compile business_agent/app/main.py
+          python3 -m py_compile business_agent/app/heartbeat.py
+
+      - name: Install dependencies
+        run: pip install --quiet -r business_agent/requirements.txt
+
+  scripts:
+    name: Lint Shell & PowerShell
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: shellcheck
+        uses: ludeeus/action-shellcheck@master
+        with:
+          scandir: ./business_agent
+          severity: warning
+
+      - name: Install PSScriptAnalyzer
+        shell: pwsh
+        run: Install-Module PSScriptAnalyzer -Force -Scope CurrentUser
+
+      - name: Lint PowerShell scripts
+        shell: pwsh
+        run: |
+          $scriptFiles = Get-ChildItem scripts/ -Recurse -Filter '*.ps1' |
+            Where-Object { $_.FullName -notlike '*\lib\*' }
+
+          $warnings = $scriptFiles |
+            ForEach-Object { Invoke-ScriptAnalyzer -Path $_.FullName -Severity Warning }
+          if ($warnings) {
+            Write-Host "::group::PSScriptAnalyzer warnings"
+            $warnings | Format-Table -AutoSize
+            Write-Host "::endgroup::"
+          }
+
+          $errors = $scriptFiles |
+            ForEach-Object { Invoke-ScriptAnalyzer -Path $_.FullName -Severity Error }
+          if ($errors) {
+            $errors | Format-Table -AutoSize
+            exit 1
+          }
+

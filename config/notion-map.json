@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "updatedAt": "2026-05-14",
+  "description": "Mapa operativo amplio de Notion. Los IDs no son secretos; el token vive cifrado en secrets/*.enc.yaml.",
+  "pages": {
+    "NOTION_PAGE_AGENTS_ID": {
+      "title": "Agentes",
+      "id": "35a6cee2-f21e-80c4-9aab-e148845fe838",
+      "owner": "shared",
+      "purpose": "Página raíz del sistema de agentes."
+    },
+    "NOTION_PAGE_COACH_ID": {
+      "title": "Coach",
+      "id": "35a6cee2-f21e-803d-983e-c6d3252b3412",
+      "owner": "coach",
+      "purpose": "Página propia de Coach."
+    },
+    "NOTION_PAGE_COLEGA_ID": {
+      "title": "Colega",
+      "id": "35a6cee2-f21e-8029-86e0-db01f59cbca3",
+      "owner": "colega",
+      "purpose": "Página propia de Colega."
+    },
+    "NOTION_PAGE_SOCIO_ID": {
+      "title": "Socio",
+      "id": "35a6cee2-f21e-8075-b2b1-f92f68829804",
+      "owner": "socio",
+      "purpose": "Página propia de Socio."
+    }
+  },
+  "databases": {
+    "NOTION_TASKS_DATABASE_ID": {
+      "title": "Lista de tareas",
+      "id": "ce0868d0-53f9-4e3e-b890-e9c94502eaad",
+      "owner": "shared",
+      "purpose": "Tareas generales y pendientes aprobados."
+    },
+    "NOTION_EXPENSES_DATABASE_ID": {
+      "title": "Gastos",
+      "id": "e8e9f2c1-0889-497e-93d0-d33c05a2e2db",
+      "owner": "shared",
+      "purpose": "Registro canónico de gastos personales reportados por Primary User. Usar Date, Amount, Category, Fuente, Comentario y Descripcion del gasto."
+    },
+    "COACH_GYM_DATABASE_ID": {
+      "title": "Sección 3: Seguimiento de Entrenamiento",
+      "id": "26f6cee2-f21e-815b-a217-c6be1e2e6ce4",
+      "owner": "coach",
+      "purpose": "Registro canónico de ejercicios de gimnasio. Una fila por ejercicio o bloque de cardio."
+    },
+    "COACH_GYM_SETS_DATABASE_ID": {
+      "title": "Interacciones sociales (alias legacy, no usar para gym)",
+      "id": "b8c87129-cc34-4a1a-a7b4-4cc8443670f7",
+      "owner": "coach",
+      "purpose": "Alias legacy conservado por compatibilidad. No usar para gimnasio; usar COACH_SOCIAL_INTERACTIONS_DATABASE_ID para abordajes e interacciones sociales."
+    },
+    "COACH_FOOD_DATABASE_ID": {
+      "title": "Registro de Comidas",
+      "id": "1e86cee2-f21e-804f-a22d-f33218e8edcf",
+      "owner": "coach",
+      "purpose": "Registro canónico de comidas y macros reportados por Primary User. Usar Date, Tipo de comida, Calorias, Proteinas, Carbohydrates, Grasas y Comentarios."
+    },
+    "COACH_FASTING_DATABASE_ID": {
+      "title": "Seguimiento de Ayuno Intermitente",
+      "id": "4ad32aea-cd78-4412-93bc-e6f3755c5eb8",
+      "owner": "coach",
+      "purpose": "Ayuno intermitente y ventanas de alimentación."
+    },
+    "COACH_HABITS_DATABASE_ID": {
+      "title": "Habits",
+      "id": "3cc64882-7fb5-425c-b763-98c7b3228070",
+      "owner": "coach",
+      "purpose": "Hábitos diarios, salud, productividad y relaciones."
+    },
+    "COLEGA_ENVIRONMENT_DATABASE_ID": {
+      "title": "Gestión ambiental",
+      "id": "35af62bf-28e3-4401-a6ab-a867c8583b85",
+      "owner": "colega",
+      "purpose": "Investigación/docencia en gestión ambiental."
+    },
+    "COLEGA_TOPICS_DATABASE_ID": {
+      "title": "Temas",
+      "id": "03015a0a-7a1c-463f-920c-baa6a25ee5f8",
+      "owner": "colega",
+      "purpose": "Temas académicos y de investigación."
+    },
+    "COLEGA_WATER_SYSTEMS_DATABASE_ID": {
+      "title": "Acueductos",
+      "id": "5b7ac484-7fc6-43c0-9d2e-84a3996d4c31",
+      "owner": "colega",
+      "purpose": "Acueductos, agua y casos ambientales."
+    },
+    "COLEGA_COURSES_DATABASE_ID": {
+      "title": "Asignaturas",
+      "id": "278d4a6b-879a-44d5-acd8-57d543ba4876",
+      "owner": "colega",
+      "purpose": "Asignaturas/cursos activos."
+    },
+    "COLEGA_READINGS_DATABASE_ID": {
+      "title": "Readings",
+      "id": "58212dd4-71d0-4685-ae10-75694a7e0f81",
+      "owner": "colega",
+      "purpose": "Lecturas académicas canónicas."
+    },
+    "SOCIO_APPS_DATABASE_ID": {
+      "title": "Aplicaciones",
+      "id": "0446e523-8589-4f0f-8d33-f9eaeb6bae56",
+      "owner": "socio",
+      "purpose": "Aplicaciones, productos y activos digitales."
+    },
+    "SOCIO_EXPENSES_DATABASE_ID": {
+      "title": "Gastos",
+      "id": "e8e9f2c1-0889-497e-93d0-d33c05a2e2db",
+      "owner": "socio",
+      "purpose": "Gastos de proyectos cuando correspondan a negocio."
+    },
+    "COACH_SOCIAL_INTERACTIONS_DATABASE_ID": {
+      "title": "Interacciones sociales",
+      "id": "b8c87129-cc34-4a1a-a7b4-4cc8443670f7",
+      "owner": "coach",
+      "purpose": "Registro canónico de abordajes, daygame, social event e interacciones sociales reales reportadas por Primary User."
+    }
+  },
+  "groups": {
+    "COLEGA_COURSE_ACTIVITIES_IDS": [
+      "8260e1e6-4a85-4550-a4f5-07dea3e55eb5",
+      "0e5cf90f-7d76-40ae-bcfd-751d62f38fbb",
+      "e146f65b-c172-4f04-8ef0-8e8d71b8775b",
+      "e9825f59-e5b0-4d74-9697-753bb766305c",
+      "02cfb7c4-6a9c-4b05-8871-d5f8f46272c2",
+      "6b9bee1a-f2b4-4e3a-bca5-8791156122c5",
+      "a6b14fd2-2274-4417-b235-57a0260f1451"
+    ],
+    "NOTION_LEGACY_READINGS_IDS": [
+      "bc0c00fd-2496-4eb0-8881-75973c5c609c",
+      "1b73eab4-0c04-41a7-af4a-b4fc864ecd5c",
+      "15c0665d-32ce-46f1-92e4-9fd5f8040896",
+      "5ac11ae0-b1c5-4263-8766-fa93b8979d0c",
+      "ac71528e-4c8a-4acb-b3d6-2f18912279bf",
+      "4f7b1a63-c6da-4a2c-a876-2e6bfe839b19",
+      "72e75afc-b687-4652-bffa-2a57ccb28182",
+      "f39ada04-1b48-456a-b56d-183416fb2979",
+      "fb4492ab-eb85-45e0-a7d2-900220570c0f",
+      "7255b7ef-a244-426a-b5d6-34d13098662f",
+      "87b27574-08a2-43c7-9322-c710af9917fa",
+      "59badca1-65db-421e-afaa-5f5af8d98781"
+    ],
+    "NOTION_LEGACY_BOOKS_IDS": [
+      "09824a54-4db6-4e42-96a2-da9f4df6621e",
+      "051192a4-4e9d-4a42-b20c-e6c86cbb5a2f"
+    ],
+    "NOTION_LEGACY_MOVIES_IDS": [
+      "92ef2251-1566-474c-905e-9123dd9aa19d",
+      "e33f1d32-d0a4-45c1-a889-030736837a37",
+      "6cdf3d2a-e3cb-45c3-84b0-5543fed9fddf",
+      "57191a87-00e4-495a-9139-997fbf676964"
+    ],
+    "NOTION_LEGACY_MUSIC_IDS": [
+      "b374bf93-8a5a-4d26-aa1c-4c71bf8a6014",
+      "a850500a-6a26-4754-9861-6f6a94f8b0de"
+    ],
+    "NOTION_UNCLASSIFIED_DATABASE_IDS": [
+      "35a6cee2-f21e-8071-a8a3-e059e5a4acf6",
+      "26f6cee2-f21e-815b-8422-c09b57d6ce8c",
+      "2306cee2-f21e-80fb-80c4-c255c229de8a",
+      "662f7853-e110-4ab6-a5cc-5f879dcd7ceb",
+      "9e5797f1-ca92-469d-acfa-9d43ef410c3b",
+      "3ac833fc-91eb-441d-906b-cffb1fa38657",
+      "013a190c-5fb5-4b26-8f11-23303bea0820",
+      "7b8e59e6-0f0e-434e-8450-9cd9af822978",
+      "2c4ef845-156f-4570-bd77-054c44e76e8d"
+    ]
+  },
+  "agentHints": {
+    "coach": [
+      "Gym: usar solo COACH_GYM_DATABASE_ID. No usar COACH_GYM_SETS_DATABASE_ID para ejercicios.",
+      "Gym schema: Ejercicio=title, Fecha entrenamiento=date, Series=rich_text, Repeticiones=rich_text, Peso=rich_text, Observaciones=rich_text.",
+      "Gym rule: una fila por ejercicio; para cardio, Series=1, Repeticiones=duración, Peso=calorías/velocidad si aplica, Observaciones=detalle.",
+      "Interacciones sociales: usar COACH_SOCIAL_INTERACTIONS_DATABASE_ID para abordajes, daygame, social event, conversaciones con people o interacciones sociales reales reportadas por Primary User.",
+      "Interacciones schema: Name=title, Fecha interacción=date, Lugar=select, Apertura=rich_text, Cierre=multi_select, Comentario=rich_text.",
+      "Interacciones rule: una fila por interacción real; no registrar planes ni conversaciones imaginadas. Si falta un dato, guardar lo disponible y anotar dato pendiente en Comentario.",
+      "Comida: usar COACH_FOOD_DATABASE_ID.",
+      "Comida schema: Nombre=title, Date=date, Tipo de comida=select, Calorias=number, Proteinas=number, Carbohydrates=number, Grasas=number, Comentarios=rich_text.",
+      "Comida rule: una fila por comida real; si Primary User da macros/calorías, registrarlos; si no, estimar solo cuando Primary User lo pida o marcar estimado en Comentarios.",
+      "Gastos/expenses: usar NOTION_EXPENSES_DATABASE_ID salvo que Primary User indique negocio.",
+      "Gastos schema: Descripcion del gasto=title, Date=date, Amount=number, Category=select, Fuente=select, Comentario=rich_text. Evitar usar Comment salvo compatibilidad vieja.",
+      "Gastos rule: una fila por gasto real; no registrar planes de compra. Si falta categoría/fuente, usar la opción más cercana y explicar en Comentario."
+    ],
+    "colega": [
+      "Investigación ambiental: usar COLEGA_ENVIRONMENT_DATABASE_ID.",
+      "Cursos/asignaturas: usar COLEGA_COURSES_DATABASE_ID y COLEGA_COURSE_ACTIVITIES_IDS.",
+      "Lecturas/papers: usar COLEGA_READINGS_DATABASE_ID."
+    ],
+    "socio": [
+      "Aplicaciones/productos: usar SOCIO_APPS_DATABASE_ID.",
+      "Gastos de negocio: usar SOCIO_EXPENSES_DATABASE_ID.",
+      "Si una base de empresa no está identificada, buscar por página Socio/Empresas antes de escribir."
+    ]
+  }
+}
+
