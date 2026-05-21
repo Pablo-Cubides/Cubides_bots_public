@@ -52,3 +52,4 @@ foreach ($t in $targets) {
 Write-Host ''
 Write-Host 'Digests actualizados. Haz commit de los Dockerfiles y lanza el CI para validar.' -ForegroundColor Cyan
 
+

@@ -180,3 +180,4 @@ Write-Host 'Perfil aplicado.' -ForegroundColor Green
 Write-Host 'Estado actual:' -ForegroundColor Cyan
 Invoke-OpenClaw -Arguments @('models', 'status')
 
+

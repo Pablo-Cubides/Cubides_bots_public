@@ -93,3 +93,4 @@ Write-Host "   ✅ .gitignore excluye: .age/keys.txt, secrets/runtime/*.env"
 Write-Host "   ✅ Hooks bloquean commits con patrones sospechosos"
 Write-Host "   ✅ .gitattributes marca cifrados como binarios"
 
+

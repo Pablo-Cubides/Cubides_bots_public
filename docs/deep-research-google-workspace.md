@@ -104,7 +104,7 @@ Categorías por agente:
 | --- | --- |
 | Colega | `Docencia`, `Investigacion`, `Congresos_Convocatorias`, `Papers_Bibliografia`, `Marca_Academica`, `Clases_Presentaciones` |
 | Coach | `Salud`, `Relaciones`, `Freelance_Tecnico`, `Habitos`, `Stack_Agentes`, `Planes_Visuales` |
-| Socio | `Spartan_Club`, `Project Beta`, `Project Gamma_IA`, `Mercado_Competencia`, `Marketing_SEO`, `Pitch_Decks` |
+| Socio | `Project_Alpha`, `Project Beta`, `Project_Gamma`, `Mercado_Competencia`, `Marketing_SEO`, `Pitch_Decks` |
 
 ## Calendarios
 
@@ -232,4 +232,5 @@ Verifica:
 - Slides creadas si `--slides true`.
 - Logs sin secretos.
 - Slack recibe el resumen si el job venía desde Slack.
+
 

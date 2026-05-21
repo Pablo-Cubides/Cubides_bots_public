@@ -33,3 +33,4 @@ Este directorio contiene la documentación operativa y técnica del sistema mult
 - Las guías específicas explican configuración y contexto.
 - No documentar secretos reales, solo nombres de variables y presencia esperada.
 
+

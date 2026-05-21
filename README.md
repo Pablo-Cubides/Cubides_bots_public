@@ -192,3 +192,4 @@ Runbook completo: [docs/operations-runbook.md](D:/Agents/docs/operations-runbook
 
 Proyecto personal. Todos los derechos reservados.
 
+

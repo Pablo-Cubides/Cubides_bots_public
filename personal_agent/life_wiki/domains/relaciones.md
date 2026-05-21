@@ -17,3 +17,4 @@ Vinculos, comunicacion, citas, socializacion, honestidad, presencia y capacidad 
 - Que conductas generan mejores conversaciones?
 - En este momento conviene subir energía, dar calma o proponer un paso más pequeño?
 
+

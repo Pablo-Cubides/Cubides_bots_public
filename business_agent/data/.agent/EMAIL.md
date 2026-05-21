@@ -45,3 +45,4 @@ node /opt/agent_tools/send_agent_mail.mjs \
 
 No imprimas claves ni tokens. Registra solo `EMAIL_SENT` o `EMAIL_FAILED` en `logs/progress.md`.
 
+

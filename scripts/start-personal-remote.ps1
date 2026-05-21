@@ -34,3 +34,4 @@ Write-Host 'Iniciando Remote Control dentro del contenedor...' -ForegroundColor 
 Write-Host 'Si no hay OAuth token, Claude pedirá login (/login).' -ForegroundColor Yellow
 & docker compose exec personal bash -lc 'claude remote-control'
 
+

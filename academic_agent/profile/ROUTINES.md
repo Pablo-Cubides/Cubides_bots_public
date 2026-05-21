@@ -47,3 +47,4 @@ cd D:\Agents
 .\scripts\invoke-agent-routine.ps1 -Agent colega -Routine sunday_roundtable
 ```
 
+

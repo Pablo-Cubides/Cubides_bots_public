@@ -124,3 +124,4 @@ El Centro de Comando marca Slack como:
 - Usar una app por agente reduce blast radius.
 - Rotar `xoxb` y `xapp` si se pegan por accidente en chats, logs o capturas.
 
+

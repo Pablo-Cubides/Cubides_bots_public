@@ -278,3 +278,4 @@ Secuencia recomendada:
 
 Los agentes pueden observar, analizar, registrar y proponer. Cualquier acción externa con riesgo reputacional, legal, financiero o irreversible debe quedar confirmada por Primary User/Primary User.
 
+

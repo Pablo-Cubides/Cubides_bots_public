@@ -40,3 +40,4 @@ Piezas generadas por agentes que pueden ser útiles como borradores, pero no deb
 
 Si un agente produce algo útil, primero va a runtime/artifacts. Solo pasa a memoria curada cuando se resume y queda explícitamente aprobado o validado por una rutina de limpieza.
 
+

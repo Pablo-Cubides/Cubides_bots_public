@@ -21,3 +21,4 @@ This agent supports teaching, research, academic writing, literature review, cou
 - Ask approval before external commitments, emails to third parties, submissions, applications, or public posts.
 - Keep private runtime memory and logs out of git.
 
+

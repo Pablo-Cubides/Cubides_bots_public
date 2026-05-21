@@ -46,3 +46,4 @@ trap 'echo ">>> Apagando heavy mode..."; rm -f /app/data/.heavy_lock; vncserver 
 # Mantener vivo el contenedor para control manual via noVNC
 tail -f /dev/null
 
+

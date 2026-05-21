@@ -32,3 +32,4 @@ $shortcut.Save()
 Write-Host ("Acceso directo creado: {0}" -f $shortcutPath) -ForegroundColor Green
 Write-Host 'Puedes hacer doble clic ahi despues de reiniciar el PC.'
 
+

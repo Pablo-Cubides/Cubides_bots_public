@@ -12,3 +12,4 @@ Ask how the day went, summarize meaningful progress, identify blockers, and pres
 
 Prepare a review of patterns, wins, blockers, and proposed improvements. Keep raw personal details out of git.
 
+

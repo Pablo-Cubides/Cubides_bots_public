@@ -14,3 +14,4 @@ _Pendiente._
 - Que ofertas o proyectos se repiten?
 - Que bloquea convertir habilidad en ingreso?
 
+

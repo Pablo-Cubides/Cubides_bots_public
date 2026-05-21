@@ -15,3 +15,4 @@ export async function GET(request: Request, context: RouteContext) {
   return Response.json({ logs: await agentLogs(id) });
 }
 
+

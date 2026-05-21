@@ -299,3 +299,4 @@ chmod 600 secrets/runtime/*.env
 
 Abre un **GitHub Private Security Advisory** en el repositorio. No uses issues públicos para reportar vulnerabilidades de seguridad.
 
+

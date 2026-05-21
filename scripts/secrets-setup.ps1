@@ -216,3 +216,4 @@ Write-Host ''
 Write-Host 'Listo: secretos guardados y cifrados en secrets/academic.enc.yaml' -ForegroundColor Green
 Write-Host 'Tu llave privada está en .age/keys.txt (no compartir).' -ForegroundColor Yellow
 
+

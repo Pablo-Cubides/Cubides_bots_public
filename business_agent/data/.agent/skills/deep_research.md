@@ -15,9 +15,9 @@ Agents Hub/05_Slides/
 
 Categorias:
 
-- `Spartan_Club`
+- `Project_Alpha`
 - `Project Beta`
-- `Project Gamma_IA`
+- `Project_Gamma`
 - `Mercado_Competencia`
 - `Marketing_SEO`
 - `Pitch_Decks`
@@ -27,4 +27,5 @@ Reglas:
 1. Separar hechos, inferencias, riesgos y recomendaciones.
 2. Guardar hallazgos importantes tambien en `business_agent/data/memory/findings.md` cuando ayuden a decisiones futuras.
 3. Crear Slides si se pide presentacion, pitch, deck o resumen visual.
+
 

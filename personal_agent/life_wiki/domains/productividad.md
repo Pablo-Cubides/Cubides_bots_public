@@ -14,3 +14,4 @@ _Pendiente._
 - Que interrupciones se repiten?
 - Que horarios o contextos ayudan?
 
+

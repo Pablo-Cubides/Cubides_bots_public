@@ -6,3 +6,4 @@
 - Rutinas recurrentes: ver `.agent/ROUTINES.md`
 - Correo propio: ver `.agent/EMAIL.md`
 
+

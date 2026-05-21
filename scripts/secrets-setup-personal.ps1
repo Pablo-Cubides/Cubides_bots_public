@@ -145,3 +145,4 @@ finally {
 Write-Host ''
 Write-Host 'Listo: secretos personales guardados en secrets/personal.enc.yaml' -ForegroundColor Green
 
+

@@ -10,3 +10,4 @@ if (/(secrets\/|\.env(\.[a-z]|$)|\.age\/)/.test(cmd)) {
 }
 EOF
 
+

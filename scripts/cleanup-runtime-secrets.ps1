@@ -52,3 +52,4 @@ if ($removed -eq 0) {
     Write-Host 'No se encontraron archivos para limpiar.' -ForegroundColor Gray
 }
 
+

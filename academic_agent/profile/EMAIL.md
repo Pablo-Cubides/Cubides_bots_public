@@ -63,3 +63,4 @@ No uses rutas no verificadas como `google-workspace-mcp` o `.local/google-worksp
 La ruta valida dentro de Colega es `/opt/agent_tools/academic_delivery.mjs`.
 Solo digas que el correo/documento fue enviado cuando la herramienta devuelva `ok: true`.
 
+

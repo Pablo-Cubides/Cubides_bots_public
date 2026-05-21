@@ -14,3 +14,4 @@ _Pendiente._
 - Que rompe la consistencia?
 - Que senales tempranas muestran sobrecarga?
 
+

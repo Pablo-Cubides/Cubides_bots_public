@@ -297,3 +297,4 @@ No subir:
 - `business_agent/data/tmp/`
 - artefactos generados por agentes que no hayan sido aprobados.
 
+

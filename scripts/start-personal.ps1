@@ -195,3 +195,4 @@ if ($NoAttach) {
 Write-Host 'Entrando al contenedor y lanzando Claude...' -ForegroundColor Cyan
 & $dockerExe compose exec personal bash -lc 'claude'
 
+

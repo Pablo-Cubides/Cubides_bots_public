@@ -11,3 +11,4 @@
 3. Formatear los 3 hallazgos más importantes.
 4. Escribir resultados en `findings.md` bajo la cabecera `## Tendencias de Mercado`.
 5. Requerimiento: Aprobación de Primary User NO requerida (Solo consumo de API gratuita).
+

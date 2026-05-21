@@ -104,3 +104,4 @@ export function formatImagesForPrompt(images = [], agentId = "") {
   return [...shared, ...lines].join("\n");
 }
 
+

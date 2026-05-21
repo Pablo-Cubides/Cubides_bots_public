@@ -28,7 +28,7 @@ const ROOT_FOLDERS = ["00_Inbox", "01_Deep_Research", "02_Rutinas", "03_Reunion_
 const CATEGORY_BY_AGENT = {
   colega: ["Docencia", "Investigacion", "Congresos_Convocatorias", "Papers_Bibliografia", "Marca_Academica", "Clases_Presentaciones"],
   coach: ["Salud", "Relaciones", "Freelance_Tecnico", "Habitos", "Stack_Agentes", "Planes_Visuales"],
-  socio: ["Spartan_Club", "Project Beta", "Project Gamma_IA", "Mercado_Competencia", "Marketing_SEO", "Pitch_Decks"],
+  socio: ["Project_Alpha", "Project Beta", "Project_Gamma", "Mercado_Competencia", "Marketing_SEO", "Pitch_Decks"],
 };
 
 function parseArgs(argv) {
@@ -342,4 +342,5 @@ main().catch((error) => {
   console.error(error instanceof Error ? error.message : String(error));
   process.exit(1);
 });
+
 

@@ -28,3 +28,4 @@ business_agent/data/tasks/task_plan.md
 
 Cada tarea llega con prefijo `[SLACK]`. No ejecutar compras, publicaciones, envíos o cambios externos sin aprobación explícita.
 
+

@@ -12,3 +12,4 @@
 3. Registrar métricas de rendimiento.
 4. Si hay caídas, registrar crítica en `errors.md` y alertar en `progress.md`.
 5. Requerimiento: Aprobación de Primary User NO requerida (Solo lectura).
+

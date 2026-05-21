@@ -30,3 +30,4 @@ config.channels.slack = {
 fs.writeFileSync(configPath, JSON.stringify(config, null, 2));
 console.log(`Slack nativo habilitado para ${channelId}`);
 
+

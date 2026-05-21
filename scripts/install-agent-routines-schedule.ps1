@@ -53,3 +53,4 @@ if ($coachRemindersRegistered) {
     Write-Host "- Coach reminders: activo manualmente; autoarranque no registrado por permisos de Windows" -ForegroundColor Yellow
 }
 
+

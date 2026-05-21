@@ -77,3 +77,4 @@ No enviar correos a terceros externos, instituciones, jurados, revistas o congre
 
 La respuesta corta en Slack debe incluir resumen, categoria, link al Doc y link a Slides si se crearon.
 
+

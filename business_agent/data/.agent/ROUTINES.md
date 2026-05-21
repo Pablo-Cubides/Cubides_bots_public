@@ -57,3 +57,4 @@ Socio Lite sí tiene daemon. Las tareas reales se agregan a:
 business_agent/data/tasks/task_plan.md
 ```
 
+

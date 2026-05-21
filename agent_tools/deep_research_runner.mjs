@@ -32,7 +32,7 @@ const AGENTS = {
   socio: {
     label: "Socio",
     model: "pro",
-    categories: ["Spartan_Club", "Project Beta", "Project Gamma_IA", "Mercado_Competencia", "Marketing_SEO", "Pitch_Decks"],
+    categories: ["Project_Alpha", "Project Beta", "Project_Gamma", "Mercado_Competencia", "Marketing_SEO", "Pitch_Decks"],
   },
 };
 
@@ -532,4 +532,5 @@ main().catch((error) => {
   log(error instanceof Error ? error.message : String(error));
   process.exit(1);
 });
+
 

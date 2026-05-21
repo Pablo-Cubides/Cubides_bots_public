@@ -4,3 +4,4 @@ This public template intentionally contains no real situations, people, reports,
 
 Use private ignored files for real situations and pattern reviews.
 
+

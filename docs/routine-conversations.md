@@ -81,3 +81,4 @@ El Centro de Comando muestra:
 - estado preview/configurado del cron nativo de Colega;
 - últimas rutinas ejecutadas y errores recientes.
 
+

@@ -14,3 +14,4 @@ _Pendiente._
 - Que condiciones facilitan volver despues de fallar?
 - Que mediciones ayudan sin volverse carga?
 
+

@@ -71,3 +71,4 @@ if ($Detached) {
 Write-Host 'Coach reminders activo. Ctrl+C para detener.' -ForegroundColor Green
 & $node @argsList
 
+

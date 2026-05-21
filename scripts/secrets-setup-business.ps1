@@ -197,3 +197,4 @@ Write-Host ''
 Write-Host 'Listo: secretos de Socio guardados en secrets/business.enc.yaml' -ForegroundColor Green
 Write-Host 'Tu llave privada está en .age/keys.txt (no compartir).' -ForegroundColor Yellow
 
+

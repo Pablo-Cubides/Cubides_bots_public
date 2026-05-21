@@ -31,11 +31,12 @@ Use this workflow for requests such as "investiga profundamente", "analiza a fon
 
 - Colega: `Docencia`, `Investigacion`, `Congresos_Convocatorias`, `Papers_Bibliografia`, `Marca_Academica`, `Clases_Presentaciones`.
 - Coach: `Salud`, `Relaciones`, `Freelance_Tecnico`, `Habitos`, `Stack_Agentes`, `Planes_Visuales`.
-- Socio: `Spartan_Club`, `Project Beta`, `Project Gamma_IA`, `Mercado_Competencia`, `Marketing_SEO`, `Pitch_Decks`.
+- Socio: `Project_Alpha`, `Project Beta`, `Project_Gamma`, `Mercado_Competencia`, `Marketing_SEO`, `Pitch_Decks`.
 
 ## Safety
 
 - Never print Google tokens, refresh tokens, client secrets, app passwords, or runtime env values.
 - Do not create calendar events with external guests, legal commitments, or payments unless Primary User/Primary User explicitly authorizes that specific action.
 - Internal events in the agent's own calendar are allowed when requested.
+
 

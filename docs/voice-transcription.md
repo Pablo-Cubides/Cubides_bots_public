@@ -204,3 +204,4 @@ OpenClaw -> pipeline nativo -> CLI/proveedor STT -> Colega
 
 Esto evita duplicar modelos, mantiene a cada agente liviano y permite controlar limites desde un solo lugar.
 
+

@@ -14,3 +14,4 @@ _Pendiente._
 - Que herramientas reducen friccion real?
 - Que deberia ser nativo del runtime y que debe ser herramienta compartida?
 
+

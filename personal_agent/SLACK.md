@@ -28,3 +28,4 @@ personal_agent/inbox/slack.md
 
 Tratar cada mensaje como solicitud pendiente. No ejecutar cambios destructivos, envíos externos ni acciones con gasto sin aprobación explícita.
 
+

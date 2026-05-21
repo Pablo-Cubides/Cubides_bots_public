@@ -273,9 +273,9 @@ function inferDeepResearchCategory(agentId, text) {
     if (/stack|agente|repo|automatizaci[oó]n|docker|slack/.test(value)) return "Stack_Agentes";
     return "Habitos";
   }
-  if (/project-alpha/.test(value)) return "Spartan_Club";
+  if (/project-alpha/.test(value)) return "Project_Alpha";
   if (/Project Beta/.test(value)) return "Project Beta";
-  if (/Project Gamma|agua|ambiental/.test(value)) return "Project Gamma_IA";
+  if (/Project Gamma|agua|ambiental/.test(value)) return "Project_Gamma";
   if (/seo|marketing|redes|contenido/.test(value)) return "Marketing_SEO";
   return "Mercado_Competencia";
 }
@@ -805,4 +805,5 @@ for (const agent of agents) {
 if (started.length === 0) {
   console.log("No hay agentes Slack activos. Configura secretos y regenera runtime env.");
 }
+
 

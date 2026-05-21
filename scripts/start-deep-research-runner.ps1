@@ -111,3 +111,4 @@ Write-Host 'Deep Research Runner activo. Ctrl+C para detener.' -ForegroundColor 
 Set-Location $repoRoot
 & $nodeExe $runner
 
+

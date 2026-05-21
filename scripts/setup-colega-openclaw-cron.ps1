@@ -144,3 +144,4 @@ $listOutput = & docker exec colega openclaw cron list
 Write-Host 'Cron nativos de Colega configurados.' -ForegroundColor Green
 Write-Host 'Sugerencia: si las pruebas llegan a Slack, define COLEGA_SLACK_MODE=native y COLEGA_ROUTINE_MODE=native en .env para apagar el fallback del bridge.' -ForegroundColor Yellow
 
+

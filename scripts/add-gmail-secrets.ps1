@@ -70,3 +70,4 @@ Write-Host ("- {0}" -f $EmailKeyName) -ForegroundColor Gray
 Write-Host ("- {0}" -f $AppPasswordKeyName) -ForegroundColor Gray
 Write-Host 'Ejecuta scripts/start-academic.ps1 para cargarlos en colega.' -ForegroundColor Gray
 
+

@@ -309,3 +309,4 @@ Imagen:
 6. Mejorar telemetría real de costos/tokens/uso.
 7. Definir política final para publicación externa en redes/social/marketing.
 
+

@@ -150,3 +150,4 @@ cd D:\Agents
 
 Revisar estado de Antigravity CLI y reportes de comunidad antes del 31 de mayo de 2026. Si ya hay estabilidad, preparar una rama experimental para Socio.
 
+

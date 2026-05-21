@@ -96,3 +96,4 @@ Write-Host 'Routine Orchestrator activo. Ctrl+C para detener.' -ForegroundColor 
 Set-Location $repoRoot
 & $nodeExe $orchestrator --loop
 
+

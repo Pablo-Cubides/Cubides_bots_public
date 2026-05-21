@@ -40,3 +40,4 @@ if ($LASTEXITCODE -ne 0) {
 Write-Host 'voice_transcriber activo: http://127.0.0.1:8011/health' -ForegroundColor Green
 Write-Host 'Nota: la primera vez descargará el modelo Whisper configurado y puede tardar.' -ForegroundColor Gray
 
+

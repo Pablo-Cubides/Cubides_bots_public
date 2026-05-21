@@ -91,3 +91,4 @@ Slack ahora tiene configuracion separada en `docs/slack-integration.md`.
 - Enviar correos solo con aprobación explícita.
 - Mostrar presencia de credenciales, nunca valores.
 
+

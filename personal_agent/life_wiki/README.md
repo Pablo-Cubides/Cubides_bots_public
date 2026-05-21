@@ -53,3 +53,4 @@ Dentro del contenedor de Coach:
 node ../agent_tools/life_wiki.mjs status
 ```
 
+

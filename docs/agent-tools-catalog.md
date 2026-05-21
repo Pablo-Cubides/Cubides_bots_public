@@ -107,3 +107,4 @@ No crear una herramienta nueva cuando:
 - El runtime nativo ya lo hace mejor.
 - La herramienta duplicaría una API existente sin agregar seguridad ni estructura.
 
+

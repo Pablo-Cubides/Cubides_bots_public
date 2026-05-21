@@ -81,3 +81,4 @@ def get_logs(_: None = Depends(require_admin_token)):
         return {"logs": "Archivo de progreso no encontrado."}
 
 
+
