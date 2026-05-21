@@ -2,7 +2,7 @@
 
 ## Enfoque
 
-Oportunidades tecnicas, clientes, apps, automatizaciones, ingresos y camino hacia tres salarios minimos relativos.
+Oportunidades tecnicas, clientes, apps, automatizaciones, ingresos y metas financieras definidas por el usuario.
 
 ## Patrones Relacionados
 
@@ -13,5 +13,6 @@ _Pendiente._
 - Que habilidades tienen retorno economico mas cercano?
 - Que ofertas o proyectos se repiten?
 - Que bloquea convertir habilidad en ingreso?
+
 
 

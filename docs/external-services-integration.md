@@ -61,7 +61,7 @@ Coach:
 | `COACH_FOOD_DATABASE_ID` | Registro de comidas y macros. |
 | `COACH_FASTING_DATABASE_ID` | Ayuno intermitente. |
 | `COACH_HABITS_DATABASE_ID` | Hábitos. |
-| `COACH_SOCIAL_INTERACTIONS_DATABASE_ID` | Abordajes e interacciones sociales. |
+| `COACH_SOCIAL_INTERACTIONS_DATABASE_ID` | Interacciones sociales y conversaciones relevantes. |
 
 Colega:
 
@@ -277,5 +277,6 @@ Secuencia recomendada:
 ## Regla De Oro
 
 Los agentes pueden observar, analizar, registrar y proponer. Cualquier acción externa con riesgo reputacional, legal, financiero o irreversible debe quedar confirmada por Primary User/Primary User.
+
 
 
