@@ -1,0 +1,21 @@
+{
+  "edition": "curated-offline",
+  "files": [
+    ".github/workflows/check.yml",
+    ".gitignore",
+    "README.md",
+    "SECURITY.md",
+    "docs/architecture.md",
+    "docs/public-export-policy.md",
+    "examples/offline-demo.mjs",
+    "package-lock.json",
+    "package.json",
+    "public-manifest.json",
+    "scripts/check-public-export.mjs",
+    "src/approval-commands.mjs",
+    "src/article-quality.mjs",
+    "src/editorial-planner.mjs",
+    "src/site-audit.mjs",
+    "tests/automations.test.mjs"
+  ]
+}

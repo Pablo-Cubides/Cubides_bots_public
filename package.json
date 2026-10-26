@@ -1,0 +1,14 @@
+{
+  "name": "cubides-bots-public",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Selected automation building blocks with synthetic, offline examples",
+  "engines": { "node": ">=24" },
+  "scripts": {
+    "test": "node --test --test-isolation=none tests/*.test.mjs",
+    "demo": "node examples/offline-demo.mjs",
+    "check:public": "node scripts/check-public-export.mjs",
+    "check": "npm run check:public && npm test && npm run demo"
+  }
+}
