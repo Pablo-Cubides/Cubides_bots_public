@@ -7,6 +7,8 @@
     "SECURITY.md",
     "docs/architecture.md",
     "docs/public-export-policy.md",
+    "docs/workflow-example.json",
+    "examples/editorial-workflow.mjs",
     "examples/offline-demo.mjs",
     "package-lock.json",
     "package.json",

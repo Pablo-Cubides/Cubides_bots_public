@@ -1,0 +1,48 @@
+{
+  "mode": "offline-editorial-workflow",
+  "scenarios": [
+    {
+      "command": "lo puedo enviar?",
+      "approval": "adjust",
+      "blockers": [],
+      "decision": "awaiting-explicit-approval"
+    },
+    {
+      "command": "envialo",
+      "approval": "send",
+      "blockers": [
+        "faq_faltante"
+      ],
+      "decision": "blocked-by-quality"
+    },
+    {
+      "command": "envialo",
+      "approval": "send",
+      "blockers": [],
+      "decision": "ready-for-scheduling-dry-run"
+    }
+  ],
+  "proposedMoves": [
+    {
+      "id": "synthetic-article",
+      "kind": "C",
+      "at": "",
+      "from": "",
+      "to": "2030-01-07T09:00:00-05:00",
+      "slot": "C"
+    },
+    {
+      "id": "synthetic-video",
+      "kind": "N",
+      "n": 1,
+      "at": "",
+      "from": "",
+      "to": "2030-01-07T17:00:00-05:00",
+      "slot": "N1"
+    }
+  ],
+  "remainingSlots": 7,
+  "externalRequests": 0,
+  "sentMessages": 0,
+  "publishedPosts": 0
+}

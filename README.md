@@ -26,6 +26,18 @@ npm run check
 
 These modules separate decisions from side effects. The examples show what would happen before any integration sends a message or changes a publishing schedule. They are building blocks, not a hosted assistant or a complete messaging connector. An approval parser alone is not authorization: any real connector must also verify the actor, permissions and pending action.
 
+## End-to-end example
+
+Run `npm run demo:workflow` to review an editorial request from input to proposed schedule. The example uses the real command, content-check and scheduling modules with synthetic text:
+
+| Input | Observed decision |
+|---|---|
+| A question about sending a valid draft | Wait for explicit approval |
+| An approval with missing required content | Block the draft for correction |
+| An approval with a valid synthetic draft | Propose two schedule moves; report seven remaining slots |
+
+See the [runnable workflow](examples/editorial-workflow.mjs) and its [generated output](docs/workflow-example.json). Assertions check all three decisions. The report is a dry run: actor authorization and external execution remain the responsibility of a real connector.
+
 ## What to inspect
 
 - [`examples/offline-demo.mjs`](examples/offline-demo.mjs): one runnable example covering approval, planning and quality checks.
